@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="hu">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Videó</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <video id="vid" autoplay muted playsinline>
+    <source src="images/vzx_luxe_fadeout_3s.mp4" type="video/mp4" />
+    A böngésződ nem támogatja a videó lejátszást.
+  </video>
+
+  <script>
+    const video = document.getElementById("vid");
+
+    video.addEventListener("ended", () => {
+      window.location.replace("fooldal.html");
+    });
+  </script>
+
+</body>
+
+</html>

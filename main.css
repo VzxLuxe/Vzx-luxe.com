@@ -1,0 +1,174 @@
+.kepek {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 0 auto 20px auto;
+  width: min(850px, 92vw);
+  height: auto;
+  margin-top: 30px;
+}
+
+
+
+.meretek {
+  color: white;
+  display: inline-block;
+  border: 2px solid white;
+  border-radius: 12px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+body {
+  background: rgb(35, 34, 34);
+  color: #fff;
+  font-family: Arial;
+  padding: 20px
+}
+
+.meretezes {
+  margin-top: 50px;
+  color: white;
+}
+
+
+
+.nevek {
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+.nevek p {
+  margin-left: 0;
+  color: black;
+}
+
+h1 {
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.logos {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.logos img {
+  width: 50px;
+  height: 50px;
+}
+
+.navbar-brand {
+  font-weight: 1000;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: 0.02em;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+}
+
+.navbar-brand {
+  font-weight: 1000;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: 0.02em;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+}
+
+.bg-brown {
+  background-color: #000 !important;
+}
+
+.navbar .navbar-collapse {
+  background-color: #000;
+}
+
+.navbar .dropdown-menu {
+  background: #000 !important;
+  border: 1px solid #222;
+}
+
+.navbar .dropdown-item {
+  color: #fff !important;
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+  background: #111 !important;
+  color: #fff !important;
+}
+
+/* Mobil navbar anim */
+@media (max-width: 991.98px) {
+  .navbar .navbar-collapse {
+    overflow: hidden;
+  }
+
+  .navbar .navbar-collapse.collapsing {
+    transition: height 450ms cubic-bezier(.22, 1, .36, 1), opacity 250ms ease;
+    opacity: .2;
+  }
+
+  .navbar .navbar-collapse.show {
+    opacity: 1;
+  }
+
+  .navbar .navbar-collapse.collapse:not(.show) {
+    opacity: 0;
+  }
+}
+
+/* CIPŐK dropdown (ha ezt használod külön) */
+.navbar .cipok-menu {
+  background: #000 !important;
+  border: 1px solid #222;
+  border-radius: 10px;
+
+  min-width: 165px;
+  width: max-content;
+  white-space: nowrap;
+
+  display: block !important;
+
+  max-height: 0;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+
+  transition:
+    max-height 320ms cubic-bezier(.22, 1, .36, 1),
+    opacity 180ms ease,
+    transform 220ms ease,
+    padding 220ms ease;
+}
+
+.navbar .cipok-menu.show {
+  max-height: 260px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.navbar .cipok-menu .dropdown-item {
+  color: #fff !important;
+  padding: 7px 14px;
+  font-size: .95rem;
+}
+
+.navbar .cipok-menu .dropdown-item:hover,
+.navbar .cipok-menu .dropdown-item:focus {
+  background: #111 !important;
+  color: #fff !important;
+}
