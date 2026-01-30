@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="hu">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Videó</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <video id="intro" controls autoplay muted playsinline preload="auto">
+    <source src="images/video.mp4" type="video/mp4">
+  </video>
+
+  <script>
+    const v = document.getElementById("intro");
+
+    function goHome() { alert("TOVABB"); }
+    window.location.href = "fooldal.html"; // <-- EZT állítsd a valódi útvonalra
+
+
+    // Ha vége a videónak
+    v.addEventListener("ended", goHome);
+
+    // Autoplay próbálkozás + kattintásos indítás ha blokkolt
+    (async () => {
+      try {
+        await v.play();
+      } catch (e) {
+        const start = () => v.play().catch(() => { });
+        document.addEventListener("click", start, { once: true });
+        document.addEventListener("touchstart", start, { once: true });
+      }
+    })();
+
+    // Fallback: ne ragadj be, akkor is lépjen tovább (állítsd a videód hosszára)
+    setTimeout(goHome, 12000);
+
+    // Hibakeresés
+    v.addEventListener("error", () => console.log("Video error:", v.error));
+  </script>
+
+</body>
+
+</html>
