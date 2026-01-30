@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="hu">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Videó</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <video id="intro" autoplay muted playsinline preload="auto">
+    <source src="images/video.mp4" type="video/mp4">
+  </video>
+
+  <script>
+    const v = document.getElementById("intro");
+
+    function goHome() {
+      // ide írd a főoldalad valódi útvonalát:
+      window.location.href = "fooldal.html";
+    }
+
+    // Ha vége a videónak → főoldal
+    v.addEventListener("ended", goHome);
+
+    // Autoplay sokszor csak muted + playsinline mellett megy, de ha mégis blokkolt:
+    async function tryPlay() {
+      try {
+        await v.play();
+      } catch (e) {
+        // kattintásra induljon
+        document.addEventListener("click", () => v.play().catch(() => { }), { once: true });
+        document.addEventListener("touchstart", () => v.play().catch(() => { }), { once: true });
+      }
+    }
+    tryPlay();
+
+    // VÉSZMEGOLDÁS: ha valamiért nem fut le az ended (pl. nem tölt be a videó)
+    // akkor se ragadj be: lépjen tovább X mp után.
+    const FALLBACK_SECONDS = 12; // állítsd a videód hosszára vagy kicsit fölé
+    setTimeout(goHome, FALLBACK_SECONDS * 1000);
+
+    // Hibakereséshez (F12 Console):
+    v.addEventListener("error", () => console.log("Video error:", v.error));
+  </script>
+
+</body>
+
+</html>
